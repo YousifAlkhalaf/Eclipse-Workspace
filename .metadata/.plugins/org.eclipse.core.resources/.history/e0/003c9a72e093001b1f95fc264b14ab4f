@@ -1,0 +1,30 @@
+package AP_GuessingGame;
+
+public class HiddenWord {
+
+	private String word;
+
+	public HiddenWord(String word) {
+		this.word = word;
+	}
+
+	public String getWord() {
+		return word;
+	}
+
+	public String getHint(String guess) {
+		String hint = "";
+		boolean isPresent = false;
+		boolean isCorrect = false;
+
+		for (int i = 0; i < guess.length(); i++) {
+			for (int n = 0; n < word.length(); n++) {
+				if (guess.charAt(i) == word.charAt(n)) {
+					System.out.println("close");
+				}
+			}
+		}
+
+		return hint;
+	}
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;StringTest.StringTestRunner.java&apos; to &apos;StringsTestRunner.java&apos;&#x0D;&#x0A;- Original project: &apos;APCS Unit 6&apos;&#x0D;&#x0A;- Original element: &apos;StringTest.StringTestRunner.java&apos;&#x0D;&#x0A;- Renamed element: &apos;StringTest.StringsTestRunner.java&apos;" description="Rename compilation unit &apos;StringTestRunner.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;StringTest{StringTestRunner.java" name="StringsTestRunner.java" references="false" stamp="1617730266351" version="1.0"/>
+</session>

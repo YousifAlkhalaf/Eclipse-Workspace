@@ -1,0 +1,107 @@
+package ItsWar;
+
+public class Warrior {
+
+	// here are my fields
+	private int health;
+	private int strength;
+	private String name;
+	private int maxHealth;
+
+	// this is my constructor
+	public Warrior(String name) {
+		this.health = (int) (Math.random() * 21 + 80);
+		this.maxHealth = health;
+		this.strength = (int) (Math.random() * 3 + 1);
+		this.name = name;
+	}
+
+	public Warrior(String name, int strength) {
+		this.health = 100;
+		this.maxHealth = 100;
+		this.strength = strength;
+		this.name = name;
+	}
+
+	// returns the player's current strength
+	public int getStrength() {
+		return strength;
+	}
+
+	// returns the player's current health
+	public int getHealth() {
+		return health;
+	}
+
+	public String getName() {
+		return name;
+	}
+	
+	public int getMaxHealth() {
+		return maxHealth;
+	}
+
+	public int getAttackRoll(int strength) {
+		int die1 = (int) (Math.random() * 6 + 1);
+		int die2 = (int) (Math.random() * 6 + 1);
+		int atk = (die1+die2) * this.strength;
+		return atk;
+	}
+
+	public void damageCalc(int atk, int health) {
+		if (health - atk > 0) {
+			this.health -= atk;
+		} else {
+			this.health = 0;
+		}
+	}
+
+	public double findPoisonApple() {
+		int appleChance = (int) (Math.random()*100 + 1);
+		if (appleChance >= 90) {
+			int dmg = maxHealth / 20;
+			health -= dmg;
+			return dmg;
+		} else {
+			return 0;
+		}
+	}
+	
+	public double findHealingApple() {
+		int appleChance = (int) (Math.random()*100 + 1);
+		if (appleChance >= 90) {
+			int heal = maxHealth / 20;
+			health += heal;
+			return heal;
+		} else {
+			return 0;
+		}
+	}
+	
+	public boolean attackUp() {
+		int buffChance = (int) (Math.random()*100 + 1);
+		if (buffChance >= 80) {
+			this.strength++;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public boolean attackDown() {
+		int debuffChance = (int) (Math.random()*100 + 1);
+		if (debuffChance >= 80) {
+			if (this.strength < 2) {
+				this.strength = 1;
+				return true;
+			} else {
+			this.strength++;
+			return true;
+			}
+		}
+		else {
+			return false;
+		}
+	}
+}

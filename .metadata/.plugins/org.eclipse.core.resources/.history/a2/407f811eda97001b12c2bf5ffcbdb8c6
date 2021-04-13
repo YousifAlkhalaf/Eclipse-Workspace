@@ -1,0 +1,25 @@
+package Assignment1;
+
+public class Diploma implements Comparable<Diploma> {
+
+	protected String fn, ln, type;
+
+	public Diploma(String fn, String ln, String type) {
+		this.fn = fn;
+		this.ln = ln;
+		this.type = type;
+	}
+
+	public String toString() {
+		String s = fn + " " + ln + " " + type;
+		return s;
+	}
+
+	public int compareTo(Diploma d) {
+		return (this.ln.compareTo(d.ln));
+	}
+	
+	public String getLastName () {
+		return ln;
+	}
+}

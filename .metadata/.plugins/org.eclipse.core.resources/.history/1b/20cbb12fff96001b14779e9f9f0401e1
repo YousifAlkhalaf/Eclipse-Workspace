@@ -1,0 +1,77 @@
+package StringTest;
+import java.util.Scanner;
+
+public class StringsTestRunner {
+
+	public static void main(String[] args) {
+
+		// Add your name to the first print statement.  
+//  Do not change any other lines in this method.
+
+		System.out.println("Yousif Alkhalaf");
+
+		question1();
+		
+		question2();
+		
+		question3();
+		
+		question4();
+		
+		question5();
+		
+		
+	}
+	
+	//-----------------------------------------------------------------------
+	
+	public static void question1()  {
+		Scanner in = new Scanner(System.in);
+		System.out.print("What is String 1? ");
+		String input = in.nextLine();
+		
+		for (int i = 0; i < input.length(); i++) {
+			if (input.charAt(i) == ' ') {
+				input.replace(' ', (Character) null);
+			}
+		}
+		System.out.println(input);
+		in.close();
+	}
+	
+	
+	//-----------------------------------------------------------
+	
+	public static void question2()  {
+		Scanner in = new Scanner(System.in);
+		// Your code goes here		
+		in.close();
+	}
+	
+	//-------------------------------------------------------
+	
+public static void question3()   {
+		Scanner in = new Scanner(System.in);
+		// Your code goes here
+		in.close();
+		
+	}
+	
+	//-----------------------------------------------------
+	
+	public static void question4()  {
+		Scanner in = new Scanner(System.in);
+		// Your code goes here
+		in.close();
+		
+	}
+//--------------------------------------------------------------
+	
+	public static void question5()  {
+		Scanner in = new Scanner(System.in);
+		// Your code goes here					
+		in.close();
+		
+	}
+	
+}

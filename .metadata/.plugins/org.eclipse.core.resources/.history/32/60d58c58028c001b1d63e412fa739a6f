@@ -1,0 +1,30 @@
+package AP_Digits;
+
+import java.util.ArrayList;
+
+public class Digits {
+
+	private ArrayList<Integer> digitList;
+
+	public Digits(int num) {
+
+		digitList = new ArrayList<Integer>();
+
+		for (int e = 1; (num % Math.pow(10, e)) > 0; e++) {
+			digitList.add(0, (int) (num % Math.pow(10, e)));
+		}
+	}
+
+	public boolean isStrictlyIncreasing() {
+		if (Digits.size == 0) {
+			return true;
+		}
+		for (int i = 0; i < Digits.size - 1; i++) {
+			if (Digits.get(i) >= Digits.get(i + 1)) {
+				return false;
+	} 
+		}
+		return true;
+	}
+
+}

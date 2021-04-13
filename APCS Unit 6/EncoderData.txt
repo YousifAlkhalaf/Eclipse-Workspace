@@ -1,0 +1,5 @@
+4		
+4 5 Meet me in 5 minutes
+6 5 Initiate distraction tomorrow
+5 4 What is your status?
+10 6 Computing is too important to be left to men - Karen Jones

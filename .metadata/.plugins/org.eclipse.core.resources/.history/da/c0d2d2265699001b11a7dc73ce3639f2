@@ -1,0 +1,18 @@
+package Assignment2;
+
+public class Vampire extends Warrior{
+
+	public Vampire(String name) {
+		super(name);
+	}
+	
+	public int getAttackRoll() {
+		int die1 = (int) (Math.random() * 6 + 1);
+		int die2 = (int) (Math.random() * 6 + 1);
+		int atk = (die1+die2) * strength;
+		
+		health += atk/8 + 1;
+		return atk;
+	}
+
+}

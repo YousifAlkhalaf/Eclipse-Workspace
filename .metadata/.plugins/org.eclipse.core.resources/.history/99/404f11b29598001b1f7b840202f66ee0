@@ -1,0 +1,20 @@
+package Assignment2;
+
+public class HeavyKnight extends Warrior{
+
+	private int defense = 5;
+	
+	public HeavyKnight(String name) {
+		super(name);
+		this.defense = 5;
+	}
+	
+	public void damageCalc(int atk, int health) {
+		if (health - atk > 0) {
+			this.health -= atk;
+		} else {
+			this.health = 0;
+		}
+	}
+
+}

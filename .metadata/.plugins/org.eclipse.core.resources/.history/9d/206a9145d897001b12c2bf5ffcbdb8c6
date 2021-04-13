@@ -1,0 +1,62 @@
+package Assignment1;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+
+public class DiplomaRunner {
+	public static void main(String[] args) throws FileNotFoundException {
+		ArrayList<Diploma> seniors = new ArrayList<Diploma>();
+
+		Scanner inFile = new Scanner(new File("Seniors.txt"));
+
+		while (inFile.hasNext()) {
+			String values = inFile.nextLine();
+			String firstName = "", lastName = "", type = "", concentration = "";
+
+			int i = 0;
+
+			while (values.charAt(i) != ' ') {
+				firstName += values.charAt(i);
+				i++;
+			}
+			while (values.charAt(i) == ' ') {
+				i++;
+			}
+			while (values.charAt(i) != ' ') {
+				lastName += values.charAt(i);
+				i++;
+			}
+			while (values.charAt(i) == ' ') {
+				i++;
+			}
+			if (values.charAt(i) == 'H') {
+				type = "Honors";
+				i += 6;
+				while (values.charAt(i) != ' ') {
+					concentration += values.charAt(i);
+					i++;
+				}
+			} else {
+				type = "Basic";
+				i += 5;
+			}
+
+			if (type.equals("Basic"))
+				seniors.add(new Diploma(firstName, lastName, type));
+			else if (type.equals("Honors"))
+				seniors.add(new HonorsDiploma(firstName, lastName, type, concentration));
+		}
+		
+		Collections.sort(seniors);
+		
+		for (Diploma d: seniors) {
+			System.out.println(d);
+		}
+		
+		System.out.println(seniors.get(5).getLastName());
+	}
+}

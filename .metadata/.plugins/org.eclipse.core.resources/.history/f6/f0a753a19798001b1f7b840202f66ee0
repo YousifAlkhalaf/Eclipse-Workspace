@@ -1,0 +1,34 @@
+package Assignment2;
+
+public class HeavyKnight extends Warrior{
+
+	private int defense = 5;
+	
+	public HeavyKnight(String name) {
+		super(name);
+		this.defense = 5;
+	}
+	
+	public void damageCalc2(int atk) {
+		if (defense > 0) {
+			int atk = 2;
+			defense--;
+		} else {
+			atk *= 2;
+		}
+		
+		if (getHealth() - atk > 0) {
+			health -= atk;
+		} else {
+			health = 0;
+		}
+	}
+	
+	public int getAttackRoll() {
+		int die1 = (int) (Math.random() * 6 + 1);
+		int die2 = (int) (Math.random() * 6 + 1);
+		int atk = (die1+die2) * strength;
+		return atk;
+	}
+
+}
