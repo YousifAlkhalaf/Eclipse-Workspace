@@ -9,7 +9,7 @@ public class HeavyKnight extends Warrior{
 	public HeavyKnight(String name) {
 		super(name);
 		this.defense = (int) (Math.random() * 3 + 2);
-		this.type = "HeavyKnight";
+		this.type = "Heavy Knight";
 	}
 	
 	public int getDefense() {

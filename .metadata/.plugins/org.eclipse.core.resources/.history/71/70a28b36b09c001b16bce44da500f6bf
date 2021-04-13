@@ -2,7 +2,7 @@ package Assignment2;
 
 public class Vampire extends Warrior {
 
-	// Gains 1/4 of the HP it takes away from the opponent plus one HP
+	// Gains 1/4 of the HP it takes from it's opponents plus one HP
 	
 	public Vampire(String name) {
 		super(name);
@@ -21,10 +21,6 @@ public class Vampire extends Warrior {
 			health += gainedHP;
 		}
 		return atk;
-	}
-
-	public int getDefense() {
-		return -1;
 	}
 
 }

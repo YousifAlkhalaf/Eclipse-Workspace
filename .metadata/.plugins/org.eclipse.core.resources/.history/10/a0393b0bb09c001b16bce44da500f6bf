@@ -45,25 +45,21 @@ public class Warrior {
 	public String getType() {
 		return type;
 	}
-	
-	public int getDefense() {
-		return -1;
-	}
 
-	public int getAttackRoll(int strength) {
-		int die1 = (int) (Math.random() * 6 + 1);
-		int die2 = (int) (Math.random() * 6 + 1);
-		int atk = (die1+die2) * this.strength;
-		return atk;
-	}
+//	public int getAttackRoll(int strength) {
+//		int die1 = (int) (Math.random() * 6 + 1);
+//		int die2 = (int) (Math.random() * 6 + 1);
+//		int atk = (die1+die2) * this.strength;
+//		return atk;
+//	}
 
-	public void damageCalc(int attack) {
-		if (health - attack > 0) {
-			this.health -= attack;
-		} else {
-			this.health = 0;
-		}
-	}
+//	public void damageCalc(int atk, int health) {
+//		if (health - atk > 0) {
+//			this.health -= atk;
+//		} else {
+//			this.health = 0;
+//		}
+//	}
 
 	public double findPoisonApple() {
 		int appleChance = (int) (Math.random()*100 + 1);

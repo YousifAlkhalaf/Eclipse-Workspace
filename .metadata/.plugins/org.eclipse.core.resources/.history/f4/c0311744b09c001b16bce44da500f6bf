@@ -57,9 +57,9 @@ public class Warrior {
 		return atk;
 	}
 
-	public void damageCalc(int attack) {
-		if (health - attack > 0) {
-			this.health -= attack;
+	public void damageCalc(int atk, int health) {
+		if (health - atk > 0) {
+			this.health -= atk;
 		} else {
 			this.health = 0;
 		}

@@ -11,23 +11,27 @@ public class Client {
 	public static void main(String[] args) throws InterruptedException {
 		HeavyKnight p1 = new HeavyKnight("Mrs. Richmond");
 		Vampire p2 = new Vampire("Mr. Rubin");
-		Troll p3 = new Troll("Mr. Selfridge");
-		
 		int atk;
 		int count = 1;
 		ArrayList<Warrior> players = new ArrayList<Warrior>();
-		players.add(p1);
-		players.add(p2);
-		players.add(p3);
 
 		for (boolean isP1Turn = true; p1.getHealth() > 0 && p2.getHealth() > 0; isP1Turn = !isP1Turn) {
 			Thread.sleep(500);
 			System.out.printf("<Turn %d>\n\n", count);
 			Thread.sleep(1500);
-			for (Warrior player: players) {
-				statUpdate(player);
+			System.out.printf("%s (%s): Health = %d, Strength = %d", p1.getName(), p1.getType(), p1.getHealth(),
+					p1.getStrength());
+			if (p1.getClass() == HeavyKnight.class) {
+				System.out.printf(", Defense = %d", p1.getDefense());
 			}
 			System.out.println();
+
+			System.out.printf("%s (%s): Health = %d, Strength = %d", p2.getName(), p2.getType(), p2.getHealth(),
+					p2.getStrength());
+			if (p2.getType() == "HeavyKnight") {
+				System.out.printf(", Defense = %d", p2.getDefense());
+			}
+			System.out.println("\n");
 
 			if (isP1Turn == true) {
 				Thread.sleep(1500);
@@ -119,14 +123,5 @@ public class Client {
 			atk = 0;
 			count++;
 		}
-	}
-	
-	public static void statUpdate (Warrior player) {
-		System.out.printf("%s (%s): Health = %d, Strength = %d", player.getName(), player.getType(), player.getHealth(),
-				player.getStrength());
-		if (player.getType() == "HeavyKnight") {
-			System.out.printf(", Defense = %d", player.getDefense());
-		}
-		System.out.println();
 	}
 }
