@@ -5,23 +5,18 @@ public class Warrior {
 	// here are my fields
 	protected int health;
 	protected int strength;
+	protected int playerNum;
 	protected String name, type;
 	protected int maxHealth;
 
 	// this is my constructor
-	public Warrior(String name) {
+	public Warrior(String name, int playerNum) {
 		this.health = (int) (Math.random() * 21 + 80);
 		this.maxHealth = health;
 		this.strength = (int) (Math.random() * 2 + 2);
 		this.name = name;
 		this.type = "Basic";
-	}
-
-	public Warrior(String name, int strength) {
-		this.health = 100;
-		this.maxHealth = 100;
-		this.strength = strength;
-		this.name = name;
+		this.playerNum = playerNum;
 	}
 
 	// returns the player's current strength
@@ -49,11 +44,15 @@ public class Warrior {
 	public int getDefense() {
 		return -1;
 	}
+	
+	public int getPlayerNum() {
+		return playerNum;
+	}
 
-	public int getAttackRoll(int strength) {
+	public int getAttackRoll() {
 		int die1 = (int) (Math.random() * 6 + 1);
 		int die2 = (int) (Math.random() * 6 + 1);
-		int atk = (die1+die2) * this.strength;
+		int atk = (die1 + die2) * strength;
 		return atk;
 	}
 

@@ -2,10 +2,10 @@ package Assignment2;
 
 public class Troll extends Warrior {
 
-	// Hits for 1.5x normal, but misses 15% of the time.
+	// Hits for 1.5x normal damage, but misses 15% of the time.
 
-	public Troll(String name) {
-		super(name);
+	public Troll(String name, int n) {
+		super(name, n);
 		this.type = "Troll";
 	}
 
@@ -16,7 +16,7 @@ public class Troll extends Warrior {
 		int hitChance = (int) (Math.random() * 100 + 1);
 
 		if (hitChance <= 85) {
-			atk = (die1 + die2) * strength;
+			atk = (int) ((die1 + die2) * strength * 1.5);
 		}
 
 		return atk;

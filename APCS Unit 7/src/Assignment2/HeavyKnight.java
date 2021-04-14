@@ -4,10 +4,10 @@ public class HeavyKnight extends Warrior{
 
 	private int defense;
 	
-	// When defense > 0, the knight takes half damage. Otherwise, it deals double damage.
+	// When defense > 0, the knight takes half damage. Otherwise, it deals 1.75x damage.
 	
-	public HeavyKnight(String name) {
-		super(name);
+	public HeavyKnight(String name, int n) {
+		super(name, n);
 		this.defense = (int) (Math.random() * 3 + 2);
 		this.type = "HeavyKnight";
 	}
@@ -36,7 +36,7 @@ public class HeavyKnight extends Warrior{
 		int atk = (die1+die2) * strength;
 		
 		if (defense <= 0) {
-			atk *= 2;
+			atk *= 1.75;
 		}
 		return atk;
 	}

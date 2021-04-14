@@ -4,129 +4,120 @@ import java.util.ArrayList;
 
 public class Client {
 
-	public final static int SECONDS_TO_MILLISECONDS(double seconds) {
-		return (int) seconds * 1000;
-	}
+	static int x = 0;
 
 	public static void main(String[] args) throws InterruptedException {
-		HeavyKnight p1 = new HeavyKnight("Mrs. Richmond");
-		Vampire p2 = new Vampire("Mr. Rubin");
-		Troll p3 = new Troll("Mr. Selfridge");
-		
-		int atk;
+		HeavyKnight p1 = new HeavyKnight("Mrs. Richmond", 1);
+		Vampire p2 = new Vampire("Mr. Rubin", 2);
+		Troll p3 = new Troll("Mr. Selfridge", 3);
+
 		int count = 1;
+		int whoseTurn = 0;
 		ArrayList<Warrior> players = new ArrayList<Warrior>();
 		players.add(p1);
 		players.add(p2);
 		players.add(p3);
 
-		for (boolean isP1Turn = true; p1.getHealth() > 0 && p2.getHealth() > 0; isP1Turn = !isP1Turn) {
-			Thread.sleep(500);
+		while (players.size() > 1) {
+			int target = -1;
+			Thread.sleep(x);
 			System.out.printf("<Turn %d>\n\n", count);
-			Thread.sleep(1500);
-			for (Warrior player: players) {
+			Thread.sleep(x);
+			for (Warrior player : players) {
 				statUpdate(player);
 			}
 			System.out.println();
 
-			if (isP1Turn == true) {
-				Thread.sleep(1500);
-				if (p1.findPoisonApple() != 0) {
-					int dmg = p1.getMaxHealth() / 20;
-					Thread.sleep(1500);
-					System.out.println("*Player 1 eats an apple*");
-					Thread.sleep(1500);
-					System.out.println("It's poisonous!");
-					Thread.sleep(1500);
-					System.out.printf("Player 1 took %d damage!\n\n", dmg);
-				} else if (p1.findHealingApple() != 0) {
-					int heal = p1.getMaxHealth() / 20;
-					Thread.sleep(1500);
-					System.out.println("*Player 1 eats an apple*");
-					Thread.sleep(1500);
-					System.out.println("It's edible!");
-					Thread.sleep(1500);
-					System.out.printf("Player 1 gained %d health points!\n\n", heal);
-				}
-				if (p1.attackUp() == true) {
-					Thread.sleep(1500);
-					System.out.println("Player 1 gains resolve!");
-					Thread.sleep(1500);
-					System.out.println("Player 1's strength increased by 1!\n");
-				} else if (p1.attackDown() == true) {
-					Thread.sleep(1500);
-					System.out.println("Player 1 loses resolve!");
-					Thread.sleep(1500);
-					if (p1.getStrength() == 1) {
-						System.out.println("Player 1's strength is at 1, and can't go any lower!\n");
-					} else {
-						System.out.println("Player 1's strength decreased by 1!\n");
-					}
-				}
-				atk = p1.getAttackRoll(); // Attack
-				Thread.sleep(1500);
-				System.out.println("Player 1 attacks Player 2!");
-				Thread.sleep(1500);
-				System.out.printf("Player 1's attack did %d damage!\n\n", atk);
-				p2.damageCalc(atk);
-			} else {
-				if (p2.findPoisonApple() != 0) {
-					int dmg = p2.getMaxHealth() / 20;
-					Thread.sleep(1500);
-					System.out.println("*Player 2 eats an apple*");
-					Thread.sleep(1500);
-					System.out.println("It's poisonous!");
-					Thread.sleep(1500);
-					System.out.printf("Player 2 took %d damage!\n\n", dmg);
-				} else if (p2.findHealingApple() != 0) {
-					int heal = p2.getMaxHealth() / 20;
-					Thread.sleep(1500);
-					System.out.println("*Player 2 eats an apple*");
-					Thread.sleep(1500);
-					System.out.println("It's edible!");
-					Thread.sleep(1500);
-					System.out.printf("Player 2 gained %d health points!\n\n", heal);
-				}
-				if (p2.attackUp() == true) {
-					Thread.sleep(1500);
-					System.out.println("Player 2 gains resolve!");
-					Thread.sleep(1500);
-					System.out.println("Player 2's strength increased by 1!\n");
-				} else if (p2.attackDown() == true) {
-					Thread.sleep(1500);
-					System.out.println("Player 2 loses resolve!");
-					Thread.sleep(1500);
-					if (p2.getStrength() == 1) {
-						System.out.println("Player 2's strength is at 1, and can't go any lower!\n");
-					} else {
-						System.out.println("Player 2's strength decreased by 1!\n");
-					}
-				}
-				atk = p2.getAttackRoll();
-				Thread.sleep(1500);
-				System.out.println("Player 2 attacks Player 1!");
-				Thread.sleep(1500);
-				System.out.printf("Player 2's attack did %d damage!\n\n", atk);
-				p1.damageCalc(atk);
+			do {
+				target = (int) (Math.random() * players.size());
+			} while (target == whoseTurn);
+
+			turnCycle(players, whoseTurn, target);
+
+			if (players.size() == 1) {
+				System.out.printf("***Player %d won!***", players.get(0).getPlayerNum());
 			}
 
-			if (p1.getHealth() <= 0) {
-				System.out.println("***Player 2 has beaten Player 1!***");
-			} else if (p2.getHealth() <= 0) {
-				System.out.println("***Player 1 has beaten Player 2!***");
-			}
-
-			atk = 0;
 			count++;
+
+			if (whoseTurn + 1 >= players.size())
+				whoseTurn = 0;
+			else
+				whoseTurn++;
 		}
 	}
-	
-	public static void statUpdate (Warrior player) {
-		System.out.printf("%s (%s): Health = %d, Strength = %d", player.getName(), player.getType(), player.getHealth(),
-				player.getStrength());
+
+	public static void statUpdate(Warrior player) {
+		System.out.printf("P%d - %s (%s): Health = %d, Strength = %d", player.getPlayerNum(), player.getName(),
+				player.getType(), player.getHealth(), player.getStrength());
 		if (player.getType() == "HeavyKnight") {
 			System.out.printf(", Defense = %d", player.getDefense());
 		}
 		System.out.println();
+	}
+
+	public static void turnCycle(ArrayList<Warrior> players, int playerIndex, int targetIndex)
+			throws InterruptedException {
+		int atk;
+		int playerNum = players.get(playerIndex).getPlayerNum();
+		int targetNum = players.get(targetIndex).getPlayerNum();
+		Thread.sleep(x);
+		System.out.printf("Player %d's turn!\n\n", playerNum);
+		if (players.get(playerIndex).getHealth() == 0) {
+			System.out.printf("Player %d is out!\n\n", playerNum);
+			players.remove(playerIndex);
+		} else {
+			if (players.get(playerIndex).findPoisonApple() != 0) {
+				int dmg = players.get(playerIndex).getMaxHealth() / 20;
+				Thread.sleep(x);
+				System.out.printf("*Player %d eats an apple*\n", playerNum);
+				Thread.sleep(x);
+				System.out.println("It's poisonous!");
+				Thread.sleep(x);
+				System.out.printf("Player %d took %d damage!\n\n", playerNum, dmg);
+			} else if (players.get(playerIndex).findHealingApple() != 0) {
+				int heal = players.get(playerIndex).getMaxHealth() / 20;
+				Thread.sleep(x);
+				System.out.printf("*Player %d eats an apple*\n", playerNum);
+				Thread.sleep(x);
+				System.out.println("It's edible!");
+				Thread.sleep(x);
+				System.out.printf("Player %d gained %d health points!\n\n", playerNum, heal);
+			}
+			if (players.get(playerIndex).attackUp() == true) {
+				Thread.sleep(x);
+				System.out.printf("Player %d gains resolve!\n", playerNum);
+				Thread.sleep(x);
+				System.out.printf("Player %d's strength increased by 1!\n\n", playerNum);
+			} else if (players.get(playerIndex).attackDown() == true) {
+				Thread.sleep(x);
+				System.out.printf("Player %d loses resolve!\n", playerNum);
+				Thread.sleep(x);
+				if (players.get(playerIndex).getStrength() == 1) {
+					System.out.printf("Player %d's strength is at 1, and can't go any lower!\n\n", playerNum);
+				} else {
+					System.out.printf("Player %d's strength decreased by 1!\n\n", playerNum);
+				}
+			}
+			atk = players.get(playerIndex).getAttackRoll(); // Attack
+			Thread.sleep(x);
+			System.out.printf("Player %d attacks Player %d!\n", playerNum, targetNum);
+			Thread.sleep(x);
+			if (atk == 0) {
+				System.out.printf("Player %d missed!\n\n", playerNum);
+			} else {
+				System.out.printf("Player %d's attack did %d damage!\n\n", playerNum, atk);
+			}
+			players.get(targetIndex).damageCalc(atk);
+
+			if (players.get(playerIndex).getType() == "Vampire") {
+				System.out.printf("Player %d gained %d health points!\n\n", playerNum, atk / 3 + 1);
+			}
+
+			if (players.get(targetIndex).getDefense() == 0) {
+				System.out.printf("Player %d's armor broke! Player %d will now do more damage!\n\n", targetNum,
+						targetNum);
+			}
+		}
 	}
 }
