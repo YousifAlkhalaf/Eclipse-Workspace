@@ -4,7 +4,7 @@ public class HeavyKnight extends Warrior{
 
 	private int defense;
 	
-	// When defense > 0, the knight takes half damage. Otherwise, it deals 1.75x damage.
+	// When defense > 0, the knight takes half damage. Otherwise, it deals 1.75x damage and takes double damage.
 	
 	public HeavyKnight(String name, int n) {
 		super(name, n);

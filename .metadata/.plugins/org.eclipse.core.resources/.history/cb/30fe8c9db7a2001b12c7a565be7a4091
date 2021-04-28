@@ -1,0 +1,14 @@
+package Assignment3;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class StudentRunner {
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner inFile = new Scanner(new File("StudentData.txt"));
+		
+		String name = inFile.next() + " " + inFile.next();
+		System.out.println(name);
+	}
+}

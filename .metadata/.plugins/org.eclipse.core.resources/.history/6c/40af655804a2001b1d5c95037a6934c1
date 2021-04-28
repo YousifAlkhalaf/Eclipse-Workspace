@@ -1,0 +1,114 @@
+package Assignment2;
+
+public abstract class Warrior {
+
+	// here are my fields
+	protected int health;
+	protected int strength;
+	protected int playerNum;
+	protected String name, type;
+	protected int maxHealth;
+
+	// this is my constructor
+	public Warrior(String name, int playerNum) {
+		this.health = (int) (Math.random() * 21 + 80);
+		this.maxHealth = health;
+		this.strength = (int) (Math.random() * 2 + 2);
+		this.name = name;
+		this.type = "Basic";
+		this.playerNum = playerNum;
+	}
+
+	// returns the player's current strength
+	public int getStrength() {
+		return strength;
+	}
+
+	// returns the player's current health
+	public int getHealth() {
+		return health;
+	}
+
+	public String getName() {
+		return name;
+	}
+	
+	public int getMaxHealth() {
+		return maxHealth;
+	}
+	
+	public String getType() {
+		return type;
+	}
+	
+	public abstract void getDefense();
+	
+	public int getPlayerNum() {
+		return playerNum;
+	}
+
+	public int getAttackRoll() {
+		int die1 = (int) (Math.random() * 6 + 1);
+		int die2 = (int) (Math.random() * 6 + 1);
+		int atk = (die1 + die2) * strength;
+		return atk;
+	}
+
+	public void damageCalc(int attack) {
+		if (health - attack > 0) {
+			this.health -= attack;
+		} else {
+			this.health = 0;
+		}
+	}
+
+	public double findPoisonApple() {
+		int appleChance = (int) (Math.random()*100 + 1);
+		if (appleChance >= 90) {
+			int dmg = maxHealth / 20;
+			health -= dmg;
+			return dmg;
+		} else {
+			return 0;
+		}
+	}
+	
+	public double findHealingApple() {
+		int appleChance = (int) (Math.random()*100 + 1);
+		if (appleChance >= 90) {
+			int heal = maxHealth / 20;
+			health += heal;
+			return heal;
+		} else {
+			return 0;
+		}
+	}
+	
+	public boolean attackUp() {
+		int buffChance = (int) (Math.random()*100 + 1);
+		if (buffChance >= 80) {
+			this.strength++;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public boolean attackDown() {
+		int debuffChance = (int) (Math.random()*100 + 1);
+		if (debuffChance >= 80) {
+			if (this.strength < 2) {
+				this.strength = 1;
+				return true;
+			} else {
+			this.strength--;
+			return true;
+			}
+		}
+		else {
+			return false;
+		}
+	}
+}
+

@@ -55,41 +55,39 @@ public class DiplomaRunner {
 				seniors.add(new HonorsDiploma(firstName, lastName, type, concentration));
 		}
 
-		Collections.sort(seniors);
+		// Collections.sort(seniors);
 
-		for (Diploma d : seniors) {
-			System.out.println(d);
-		}
+		Diploma.sortDiplomaList(seniors);
+
+		Diploma.printDiplomaList(seniors);
 		System.out.println();
 
-		boolean nameFound = false;
 		boolean isDone = false;
+		boolean hasAccess = false;
 
 		while (isDone == false) {
-				System.out.print("Write the last name of the student you want to edit. Say \"No\" to opt out. ");
-				String targetName = scan.next();
+			System.out.print("Write the last name of the student you want to edit. Say \"No\" to opt out. ");
+			String targetName = scan.next();
 
-				if (targetName.equalsIgnoreCase("No")) {
-					isDone = true;
-				} else {
-					for (int i = 0; i < seniors.size(); i++) {
-						if (seniors.get(i).getLastName().equalsIgnoreCase(targetName)) {
-							nameFound = true;
-							if (seniors.get(i).getType().equals("Honors")) {
-								System.out.println(seniors.get(i).getFirstName() + " " + seniors.get(i).getLastName()
-										+ " is now a Basic student.");
-								HonorsDiploma.changeHonors(seniors, i);
-							} else {
-								System.out.println(seniors.get(i).getFirstName() + " " + seniors.get(i).getLastName()
-										+ " is now an Honors student.");
-								System.out.print("What concentration do you want this student to have? ");
-								String focus = scan.next();
-								Diploma.changeHonors(seniors, i, focus);
-							}
+			if (targetName.equalsIgnoreCase("No")) {
+				isDone = true;
+			} else if (hasAccess == true) {
+				Diploma.findAndChange(seniors, targetName);
+			} else {
+				while (hasAccess == false) {
+					System.out.print("Enter the password in order to change the diplomas. Say \"No\" to quit: ");
+					String s = scan.next();
+					if (s.compareToIgnoreCase("No") == 0) {
+						isDone = true;
+					} else {
+						hasAccess = Diploma.passCheck(s);
+						if (hasAccess == true) {
+							Diploma.findAndChange(seniors, targetName);
+						} else {
+							System.out.println("Incorrect password");
 						}
 					}
-					if (nameFound == false)
-						System.out.println("Student not found. Please try again.");
+				}
 			}
 		}
 		System.out.println();
