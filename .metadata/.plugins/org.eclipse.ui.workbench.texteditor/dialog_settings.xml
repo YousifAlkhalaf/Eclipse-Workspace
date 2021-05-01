@@ -8,6 +8,7 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="true"/>
 		<list key="findhistory">
+			<item value="sta"/>
 			<item value="player"/>
 			<item value="1500"/>
 			<item value="SECONDS"/>
