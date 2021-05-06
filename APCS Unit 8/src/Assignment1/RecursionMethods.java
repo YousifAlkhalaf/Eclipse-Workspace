@@ -2,7 +2,7 @@ package Assignment1;
 
 public class RecursionMethods {
 	public static void main (String[] args) {
-		int x = multiply(0, 20);
+		int x = multiply(3, 20);
 		System.out.println(x);
 		System.out.println();
 		
