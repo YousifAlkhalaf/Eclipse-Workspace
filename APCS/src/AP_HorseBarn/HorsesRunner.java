@@ -3,10 +3,10 @@ package AP_HorseBarn;
 public class HorsesRunner {
 
 	public static Horse[] spaces = new Horse[7];
-	
+
 	public static void main(String[] args) {
 		// initialize the array
-		
+
 		spaces[0] = new Horse("Trigger");
 		spaces[1] = null;
 		spaces[2] = new Horse("Silver");
@@ -17,7 +17,7 @@ public class HorsesRunner {
 
 		printBarn(spaces);
 		System.out.println();
-		
+
 		System.out.println("Check your output for part a");
 		System.out.println("Expecting 0  2  -1");
 		int x = findHorseSpace("Trigger");
@@ -25,41 +25,54 @@ public class HorsesRunner {
 		x = findHorseSpace("Silver");
 		System.out.println(x);
 		x = findHorseSpace("Coco");
-		System.out.println(x); 
-		
+		System.out.println(x);
+
 		System.out.println("Checking part b");
 		System.out.println(("Expecting Trigger Silver Lady Patches Duke null null"));
 		consolidate();
 		printBarn(spaces);
-		
+
 	}
 
-	//----------------------------------------------------------
-	
-	public static void printBarn(Horse[] barn)  {
-		
-		for (int i = 0; i < barn.length; i++)  {
+	// ----------------------------------------------------------
+
+	public static void printBarn(Horse[] barn) {
+
+		for (int i = 0; i < barn.length; i++) {
 			if (barn[i] != null)
 				System.out.print(" " + barn[i].getName() + "  ");
-			else System.out.print("null  ");
+			else
+				System.out.print("null  ");
 		}
 		System.out.println();
 	}
-	
-	//-------------------------------------------------------
-	
-	
-	public static int findHorseSpace (String name)  {
 
-		// code for part a goes here
-	}
-	
-	
 	// -------------------------------------------------------
-	
-	public static void consolidate()  {
-		
-		// code for part b goes here
+
+	public static int findHorseSpace(String name) {
+		for (int i = 0; i < spaces.length; i++) {
+			if (spaces[i] != null) {
+				if (spaces[i].getName() == name) {
+					return i;
+				}
+			}
+		}
+		return -1;
+	}
+
+	// -------------------------------------------------------
+
+	public static void consolidate() {
+		for (int i = 0; i < spaces.length; i++) {
+			if (spaces[i] == null) {
+				for (int k = i+1; k < spaces.length; k++) {
+					if(spaces[k] != null) {
+						spaces[i] = spaces[k];
+						spaces[k] = null;
+						i += 1;
+					}
+				}
+			}
+		}
 	}
 }
-
