@@ -23,35 +23,33 @@ public class TileGame {
 			return -1;
 		}
 		for (int i = 0; i <= board.size(); i++) {
-			
+
 			boolean fitsLeft;
 			boolean fitsRight;
-			
-			/*if (i == 0) {
-				fitsRight = tile.getRight() == board.get(i).getLeft();
-				
-				if (fitsRight) {
-					return 0;
-				}
-			} else */ if (i == board.size()) {
+
+			if (i == board.size()) {
 				fitsLeft = tile.getLeft() == board.get(i - 1).getRight();
-				
+
 				if (fitsLeft) {
 					return i;
 				}
 			} else {
 				fitsLeft = tile.getLeft() == board.get(i).getRight();
 				fitsRight = tile.getRight() == board.get(i).getLeft();
-				
+
 				if (fitsRight && fitsLeft) {
+					return i;
+				}
+
+				if (i == 0 && fitsRight) {
 					return i;
 				}
 			}
 		}
 		return -1;
 	}
-	
-	public boolean insertTile (NumberTile tile) {
+
+	public boolean insertTile(NumberTile tile) {
 		int initial = tile.getUp();
 		do {
 			int x = getIndexForFit(tile);
@@ -64,7 +62,7 @@ public class TileGame {
 		} while (initial != tile.getUp());
 		return false;
 	}
-	
+
 	public String toString() {
 		String r1 = "", r2 = "", r3 = "";
 		for (int i = 0; i < board.size(); i++) {
@@ -72,7 +70,7 @@ public class TileGame {
 			r2 += String.format("%d   %d ", board.get(i).getLeft(), board.get(i).getRight());
 			r3 += String.format("  %d   ", board.get(i).getDown());
 		}
-		
+
 		String s = r1 + "\n" + r2 + "\n" + r3;
 		return s;
 	}

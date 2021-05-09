@@ -15,7 +15,7 @@ public class TileRunner {
 			NumberTile t = tiles.get(i);
 			if (game.insertTile(t)) {
 				tiles.remove(i);
-				//System.out.println(game);
+				System.out.println(game);
 			} else {
 				//System.out.println("Fail");
 				//System.out.println(t);
@@ -23,9 +23,9 @@ public class TileRunner {
 		}
 		
 		System.out.println(game);
-		System.out.println("Tiles that could not be placed");
-		for (NumberTile t : tiles) {
-			System.out.println(t);
-		}
+//		System.out.println("Tiles that could not be placed");
+//		for (NumberTile t : tiles) {
+//			System.out.println(t);
+//		}
 	}
 }
