@@ -2,14 +2,15 @@
 /AP_Digits/
 /AP_Encoder/
 /AP_GuessingGame/
+/AP_Hailstone/
 /AP_HorseBarn/
 /AP_NewDigits/
 /AP_Phrase/
 /AP_SeatingChart/
 /AP_SkyView/
 /AP_Sound/
+/AP_StepTracker/
 /AP_Trails/
 /Array_Review_2/
 /Test.class
-/AP_StepTracker/
-/AP_Hailstone/
+/AP_Tile/
