@@ -25,18 +25,6 @@ public class NumberTile {
 		}
 	}
 
-	public static boolean canConnect(NumberTile topTile, NumberTile bottomTile) {
-		int initial = bottomTile.getUp();
-		do {
-			if (topTile.getDown() == bottomTile.getUp()) {
-				return true;
-			} else {
-				bottomTile.rotate();
-			}
-		} while (initial != topTile.getDown());
-		return false;
-	}
-
 	public String toString() {
 		String r1 = "", r2 = "", r3 = "";
 		r1 += String.format("  %d   ", this.getUp());

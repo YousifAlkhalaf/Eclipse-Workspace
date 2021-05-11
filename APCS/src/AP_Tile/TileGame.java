@@ -3,13 +3,15 @@ package AP_Tile;
 import java.util.ArrayList;
 
 public class TileGame {
+	
 	private ArrayList<NumberTile> board;
-
+	
 	public TileGame() {
 		board = new ArrayList<NumberTile>();
 	}
 
 	private int getIndexForFit(NumberTile tile) {
+		
 		if (board.size() == 0) {
 			return 0;
 		}
@@ -28,20 +30,23 @@ public class TileGame {
 			boolean fitsRight;
 
 			if (i == board.size()) {
-				fitsLeft = tile.getLeft() == board.get(i - 1).getRight();
+				fitsLeft = tile.getLeft() == board.get(board.size() - 1).getRight();
 
 				if (fitsLeft) {
 					return i;
 				}
-			} else {
-				fitsLeft = tile.getLeft() == board.get(i).getRight();
+			} else if (i == 0) {
+				
 				fitsRight = tile.getRight() == board.get(i).getLeft();
-
-				if (fitsRight && fitsLeft) {
+				if (fitsRight) {
 					return i;
 				}
+			} else {
 
-				if (i == 0 && fitsRight) {
+				fitsRight = tile.getRight() == board.get(i).getLeft();
+				fitsLeft = tile.getLeft() == board.get(i - 1).getRight();
+
+				if (fitsRight && fitsLeft) {
 					return i;
 				}
 			}
@@ -73,5 +78,9 @@ public class TileGame {
 
 		String s = r1 + "\n" + r2 + "\n" + r3;
 		return s;
+	}
+
+	public ArrayList<NumberTile> getBoard() {
+		return board;
 	}
 }
