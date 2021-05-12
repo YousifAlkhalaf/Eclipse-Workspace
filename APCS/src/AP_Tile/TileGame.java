@@ -9,6 +9,10 @@ public class TileGame {
 	public TileGame() {
 		board = new ArrayList<NumberTile>();
 	}
+	
+	public TileGame(ArrayList<NumberTile> tiles) {
+		board = tiles;
+	}
 
 	private int getIndexForFit(NumberTile tile) {
 		
