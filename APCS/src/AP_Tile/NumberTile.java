@@ -25,15 +25,6 @@ public class NumberTile {
 		}
 	}
 
-	public String toString() {
-		String r1 = "", r2 = "", r3 = "";
-		r1 += String.format("  %d   ", this.getUp());
-		r2 += String.format("%d   %d ", this.getLeft(), this.getRight());
-		r3 += String.format("  %d   ", this.getDown());
-		String s = r1 + "\n" + r2 + "\n" + r3;
-		return s;
-	}
-
 	public int getUp() {
 		return tileNums[0];
 	}
