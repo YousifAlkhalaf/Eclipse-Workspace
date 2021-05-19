@@ -1,12 +1,14 @@
 package Garden;
 
 import java.util.Scanner;
+import Player.Player;
 
 public class Client {
 
 	public static Scanner scan = new Scanner(System.in);
 
 	public static void main(String[] args) {
+		
 		
 	}
 
@@ -40,6 +42,17 @@ public class Client {
 			} else {
 				return n;
 			}
+		}
+	}
+	
+	public static void mainMenu(Player p) {
+		System.out.println("1. Active Chao");
+		System.out.println("2. Items");
+		System.out.println("3. My Chao\n");
+		int n = getInput(3);
+		
+		if (n == 1) {
+			
 		}
 	}
 }
