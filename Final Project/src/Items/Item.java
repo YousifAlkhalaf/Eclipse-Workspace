@@ -15,4 +15,12 @@ public class Item {
 		type = itemType;
 		desc = itemDesc;
 	}
+	
+	public String toString() {
+		String s = "";
+		s += name;
+		s += "\nType: " + type;
+		s += "\n" + desc;
+		return s;
+	}
 }

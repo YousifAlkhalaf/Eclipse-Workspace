@@ -10,4 +10,5 @@
     <fullyQualifiedTypeName name="Items.Item"/>
     <fullyQualifiedTypeName name="Chao.Chao"/>
     <fullyQualifiedTypeName name="Player.Player"/>
+    <fullyQualifiedTypeName name="java.io.Console"/>
 </qualifiedTypeNameHistroy>

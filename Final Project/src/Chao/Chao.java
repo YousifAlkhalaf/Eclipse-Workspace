@@ -55,7 +55,7 @@ public class Chao {
 	}
 	
 	public void chaoStats() {
-		System.out.println(name + "/n--------------------");
+		System.out.println(name + "\n--------------------");
 		System.out.println("Level " + lvl);
 		System.out.println("XP: " + xp);
 		System.out.println("XP until next level: " + toNextLevel + "\n");
@@ -76,5 +76,9 @@ public class Chao {
 			System.out.println("Mood: Great");
 		else
 			System.out.println("Mood: Amazing");
+	}
+	
+	public String getName() {
+		return name;
 	}
 }
