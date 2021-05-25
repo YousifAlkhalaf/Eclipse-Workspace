@@ -8,7 +8,10 @@
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="Items.Item"/>
-    <fullyQualifiedTypeName name="Chao.Chao"/>
     <fullyQualifiedTypeName name="Player.Player"/>
     <fullyQualifiedTypeName name="java.io.Console"/>
+    <fullyQualifiedTypeName name="Items.SmallBerry"/>
+    <fullyQualifiedTypeName name="Chao.Chao"/>
+    <fullyQualifiedTypeName name="Items.CommonBerry"/>
+    <fullyQualifiedTypeName name="Garden.Client"/>
 </qualifiedTypeNameHistroy>

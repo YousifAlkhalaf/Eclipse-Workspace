@@ -2,7 +2,6 @@ package Garden;
 
 import java.util.Scanner;
 import Player.Player;
-import java.io.Console;
 import java.io.IOException;
 
 public class Client {
@@ -11,13 +10,11 @@ public class Client {
 
 	public static void main(String[] args) throws IOException {
 		Player p = new Player();
-		System.out.println("Hello World!\n");
-		while (true) {
-			mainMenu(p);
-			System.out.println("\nInput a number to continue");
-			scan.nextInt();
-			shiftClear(1000);
-		}
+		
+		asciiChao2A();
+		
+//		System.out.println("Hello World!\n");
+		mainMenu(p);
 	}
 
 	/*
@@ -51,26 +48,66 @@ public class Client {
 		}
 	}
 
+	// Main menu
 	public static void mainMenu(Player p) {
 		System.out.println("1. Active Chao");
 		System.out.println("2. Items");
-		System.out.println("3. My Chao\n");
+		System.out.println("3. Reserve Chao\n");
 		int n = getInput(3);
 		shiftClear(6);
 
 		if (n == 1) {
 			p.chao().chaoStats();
+			System.out.println("\n1. Return to Main Menu\n");
+			getInput(1);
+			shiftClear(6);
+			mainMenu(p);
 		} else if (n == 2) {
-			p.itemPrint();
+			p.itemMenu();
 		} else {
-			p.chaoPrint();
+			p.chaoMenu();
 		}
 	}
 
+	// Makes n new lines
 	public static void shiftClear(int n) {
 		for (int i = 0; i < n; i++) {
 			System.out.println();
 		}
-		
+
+	}
+	
+	// Below are ASCII title screens for the project
+	
+	public static void asciiChao1() {
+		System.out.println("           88");
+		System.out.println("           88");
+		System.out.println("           88");
+		System.out.println(" ,adPPYba, 88,dPPYba,  ,adPPYYba,  ,adPPYba, ");
+		System.out.println("a8\"     \"\" 88P'    \"8a \"\"     `Y8 a8\"     \"8a");
+		System.out.println("8b         88       88 ,adPPPPP88 8b       d8");
+		System.out.println("\"8a,   ,aa 88       88 88,    ,88 \"8a,   ,a8\"");
+		System.out.println("`\"Ybbd8\"'  88       88 `\"8bbdP\"Y8  `\"YbbdP\"'\n");
+	}
+	
+	public static void asciiChao2() {
+		System.out.println("     _");
+		System.out.println("     | |");
+		System.out.println("  ___| |__   __ _  ___");
+		System.out.println(" / __| '_ \\ / _` |/ _ \\");
+		System.out.println("| (__| | | | (_| | (_) |");
+		System.out.println(" \\___|_| |_|\\__,_|\\___/ ");
+	}
+	
+	public static void asciiChao2A() {
+		System.out.println("      _                                          _");
+		System.out.println("     | |                                        | |");
+		System.out.println("  ___| |__   __ _  ___        __ _  __ _ _ __ __| | ___ _ __");
+		System.out.println(" / __| '_ \\ / _` |/ _ \\      / _` |/ _` | '__/ _` |/ _ \\ '_ \\");
+		System.out.println("| (__| | | | (_| | (_) |    | (_| | (_| | | | (_| |  __/ | | |");
+		System.out.println(" \\___|_| |_|\\__,_|\\___/      \\__, |\\__,_|_|  \\__,_|\\___|_| |_|");
+		System.out.println("                              __/ |");
+		System.out.println("                             |___/ ");
+		// 5 spaces
 	}
 }
