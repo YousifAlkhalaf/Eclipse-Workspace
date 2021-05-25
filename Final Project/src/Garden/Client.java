@@ -11,7 +11,7 @@ public class Client {
 	public static void main(String[] args) throws IOException {
 		Player p = new Player();
 		
-		asciiChao2A();
+		asciiChao();
 		
 //		System.out.println("Hello World!\n");
 		mainMenu(p);
@@ -77,29 +77,9 @@ public class Client {
 
 	}
 	
-	// Below are ASCII title screens for the project
+	// Below is an ASCII title screen for the project
 	
-	public static void asciiChao1() {
-		System.out.println("           88");
-		System.out.println("           88");
-		System.out.println("           88");
-		System.out.println(" ,adPPYba, 88,dPPYba,  ,adPPYYba,  ,adPPYba, ");
-		System.out.println("a8\"     \"\" 88P'    \"8a \"\"     `Y8 a8\"     \"8a");
-		System.out.println("8b         88       88 ,adPPPPP88 8b       d8");
-		System.out.println("\"8a,   ,aa 88       88 88,    ,88 \"8a,   ,a8\"");
-		System.out.println("`\"Ybbd8\"'  88       88 `\"8bbdP\"Y8  `\"YbbdP\"'\n");
-	}
-	
-	public static void asciiChao2() {
-		System.out.println("     _");
-		System.out.println("     | |");
-		System.out.println("  ___| |__   __ _  ___");
-		System.out.println(" / __| '_ \\ / _` |/ _ \\");
-		System.out.println("| (__| | | | (_| | (_) |");
-		System.out.println(" \\___|_| |_|\\__,_|\\___/ ");
-	}
-	
-	public static void asciiChao2A() {
+	public static void asciiChao() {
 		System.out.println("      _                                          _");
 		System.out.println("     | |                                        | |");
 		System.out.println("  ___| |__   __ _  ___        __ _  __ _ _ __ __| | ___ _ __");
