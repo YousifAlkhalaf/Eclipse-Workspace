@@ -1,6 +1,9 @@
 package Garden;
 
 import java.util.Scanner;
+
+import Items.CommonBerry;
+import Items.SmallBerry;
 import Player.Player;
 import java.io.IOException;
 
@@ -10,10 +13,10 @@ public class Client {
 
 	public static void main(String[] args) throws IOException {
 		Player p = new Player();
-		
+		p.item().add(new SmallBerry());
+		p.item().add(new CommonBerry());
 		asciiChao();
 		
-//		System.out.println("Hello World!\n");
 		mainMenu(p);
 	}
 

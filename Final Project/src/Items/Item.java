@@ -6,16 +6,18 @@ import Garden.Client;
 public class Item {
 	
 	private String name, type, desc;
+	private int price;
 	
 	// Constructor
 	public Item() {
 		name = "Unknown";
 		type = "Unknown";
 		desc = "Unknown";
+		price = 0;
 	}
 	
 	// Alt constructor
-	public Item(String itemName, String itemType, String itemDesc) {
+	public Item(String itemName, String itemType, String itemDesc, int price) {
 		name = itemName;
 		type = itemType;
 		desc = itemDesc;
@@ -33,8 +35,14 @@ public class Item {
 		return s;
 	}
 	
+	// Getter for item name
 	public String getName() {
 		return name;
+	}
+	
+	// Getter for item price
+	public int getPrice() {
+		return price;
 	}
 	
 	// Menu for using an item. Returns boolean that determines action in Player class

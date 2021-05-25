@@ -19,21 +19,35 @@ public class Player {
 		activeChao = chaoList.get(0);
 	}
 
+	// Getter for active Chao
 	public Chao chao() {
 		return activeChao;
 	}
 
+	// Getter for item list
 	public ArrayList<Item> item() {
 		return itemList;
+	}
+	
+	// Getter for coins
+	public int coins() {
+		return coins;
+	}
+	
+	// Changes player coins by amt
+	public void addCoins(int amt) {
+		coins += amt;
 	}
 
 	// Menu for looking at and using items. Makes a numbered list of items, if possible, for you to pick
 	public void itemMenu() {
+		this.sortItems();
 		if (itemList.size() == 0) {
 			System.out.println("No items.");
 			System.out.println("\n1. Return to Main Menu\n");
 			Client.getInput(1);
 			Client.shiftClear(6);
+			Client.mainMenu(this);
 		} else {
 			System.out.println("Select an item\n");
 			System.out.println("\n0. Return to Main Menu\n");
@@ -60,11 +74,13 @@ public class Player {
 
 	// Menu for looking at and interacting with your Chao.
 	public void chaoMenu() {
+		this.sortChao();
 		if (chaoList.size() == 0) {
 			System.out.println("No Chao.");
 			System.out.println("\n1. Return to Main Menu\n");
 			Client.getInput(1);
 			Client.shiftClear(6);
+			Client.mainMenu(this);
 		} else {
 			System.out.println("Select a Chao from your inventory\n");
 			System.out.println("\n0. Return to Main Menu\n");
@@ -93,6 +109,48 @@ public class Player {
 				}
 			}
 			Client.mainMenu(this);
+		}
+	}
+	
+	// Sorts the item list in alphabetical order by name
+	public void sortItems() {
+		for (int i = 0; i < itemList.size(); i++) {
+			int min = i;
+			for (int j = i + 1; j < itemList.size(); j++) {
+				int compare = itemList.get(j).getName()
+						.compareToIgnoreCase(itemList.get(min).getName());
+				if (compare < 0) {
+					min = j;
+				}
+			}
+			if (min != i) {
+				Item temp = itemList.get(min);
+				itemList.add(min, itemList.get(i));
+				itemList.remove(min + 1);
+				itemList.add(i, temp);
+				itemList.remove(i + 1);
+			}
+		}
+	}
+	
+	// Sorts Chao in alphabetical order by name
+	public void sortChao() {
+		for (int i = 0; i < chaoList.size(); i++) {
+			int min = i;
+			for (int j = i + 1; j < chaoList.size(); j++) {
+				int compare = chaoList.get(j).getName()
+						.compareToIgnoreCase(chaoList.get(min).getName());
+				if (compare < 0) {
+					min = j;
+				}
+			}
+			if (min != i) {
+				Chao temp = chaoList.get(min);
+				chaoList.add(min, chaoList.get(i));
+				chaoList.remove(min + 1);
+				chaoList.add(i, temp);
+				chaoList.remove(i + 1);
+			}
 		}
 	}
 }

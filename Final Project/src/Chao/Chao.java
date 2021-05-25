@@ -1,6 +1,7 @@
 package Chao;
 
 import Garden.Client;
+import java.util.Scanner;
 
 public class Chao {
 
@@ -8,6 +9,8 @@ public class Chao {
 	private int fly, run, swim;
 	private String name;
 	private static int nextLvlBase = 100;
+	
+	private Scanner scan = new Scanner(System.in);
 
 	// Default Chao the player starts with
 	public Chao() {
@@ -122,7 +125,16 @@ public class Chao {
 			System.out.println("Mood: Amazing");
 	}
 
+	// Getter for a Chao's name
 	public String getName() {
 		return name;
+	}
+	
+	// Changes a Chao's name. Appears when using a Name Tag
+	public void changeName() {
+		System.out.println("\nWrite the name you want to give your Chao\n");
+		String s = scan.nextLine();
+		name = s;
+		System.out.println("Name changed!\n");
 	}
 }
