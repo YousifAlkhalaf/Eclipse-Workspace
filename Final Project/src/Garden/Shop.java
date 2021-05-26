@@ -51,7 +51,7 @@ public class Shop {
 			}
 		}
 	}
-
+// Shop UI
 	public void shopMenu(Player p) {
 		this.sortItems();
 		int money = p.coins();
@@ -62,7 +62,7 @@ public class Shop {
 		int i = 0;
 		int num = 1;
 		ArrayList<Integer> indexes = new ArrayList<Integer>();
-
+// Shop Logic
 		for (i = 0; i < catalog.size(); i++) {
 			if (catalog.get(i).getPrice() <= money) {
 				System.out.printf("%d. %s [Cost: %d]\n", num, catalog.get(i).getName(), catalog.get(i).getPrice());

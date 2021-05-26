@@ -53,7 +53,8 @@ public class Client {
 
 	// Main menu
 	public static void mainMenu(Player p) {
-		System.out.println("1. Active Chao");
+		System.out.println("Coins: " + p.coins());
+		System.out.println("\n1. Active Chao");
 		System.out.println("2. Items");
 		System.out.println("3. Reserve Chao");
 		System.out.println("4. Shop");

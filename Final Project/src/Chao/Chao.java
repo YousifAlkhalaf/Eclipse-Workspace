@@ -180,7 +180,12 @@ public class Chao {
 		}
 		
 		yourTotal = yourStats * lvl + happiness;
-		riva
+		rivalTotal = rivalStats * otherChao.lvl + otherChao.happiness;
+		
+		if (yourTotal >= rivalTotal) {
+			return true;
+		}
+		return false;
 	}
 
 	// Changes a Chao's fly stat by amt
@@ -188,12 +193,12 @@ public class Chao {
 		fly += amt;
 	}
 
-	// Changes a Chao's fly stat by amt
+	// Changes a Chao's swim stat by amt
 	public void changeSwim(int amt) {
 		swim += amt;
 	}
 
-	// Changes a Chao's fly stat by amt
+	// Changes a Chao's run stat by amt
 	public void changeRun(int amt) {
 		run += amt;
 	}
