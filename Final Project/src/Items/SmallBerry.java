@@ -10,5 +10,10 @@ public class SmallBerry extends Item{
 	
 	public void use(Chao chao) {
 		chao.levelUp(25);
+		chao.changeMood(2);
+	}
+	
+	public int getPrice() {
+		return super.getPrice();
 	}
 }

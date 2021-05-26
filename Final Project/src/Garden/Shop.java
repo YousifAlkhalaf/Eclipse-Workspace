@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import Items.CommonBerry;
 import Items.Item;
+import Items.NameTag;
 import Items.SmallBerry;
 import Player.Player;
 
@@ -14,6 +15,7 @@ public class Shop {
 	public Shop() {
 		catalog.add(new CommonBerry());
 		catalog.add(new SmallBerry());
+		catalog.add(new NameTag());
 	}
 
 	// Sorts items in catalog
@@ -40,8 +42,8 @@ public class Shop {
 		this.sortItems();
 		int money = p.coins();
 
-		System.out.println("Coins: " + money + "\n");
-		System.out.println("Select an item\n");
+		System.out.println("Coins: " + money);
+		System.out.println("Select an item to buy");
 		System.out.println("\n0. Return to Main Menu\n");
 		int i = 0;
 		int num = 1;
@@ -60,13 +62,15 @@ public class Shop {
 
 		if (n == 0) {
 			Client.shiftClear(6);
+			Client.mainMenu(p);
 		} else {
 			System.out.println();
-			if (catalog.get(indexes.get(n - 1)).select(p.chao())) {
+			if (catalog.get(indexes.get(n - 1)).select(p)) {
 				p.item().add(catalog.get(indexes.get(n - 1)));
 				p.addCoins(-1 * catalog.get(indexes.get(n - 1)).getPrice());
 			}
+			this.shopMenu(p);
 		}
-		Client.mainMenu(p);
+		
 	}
 }

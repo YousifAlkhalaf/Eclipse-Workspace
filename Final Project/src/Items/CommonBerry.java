@@ -10,5 +10,6 @@ public class CommonBerry extends Item{
 	
 	public void use(Chao chao) {
 		chao.levelUp(75);
+		chao.changeMood(5);
 	}
 }

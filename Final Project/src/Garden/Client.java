@@ -55,8 +55,9 @@ public class Client {
 	public static void mainMenu(Player p) {
 		System.out.println("1. Active Chao");
 		System.out.println("2. Items");
-		System.out.println("3. Reserve Chao\n");
-		int n = getInput(3);
+		System.out.println("3. Reserve Chao");
+		System.out.println("4. Shop\n");
+		int n = getInput(4);
 		shiftClear(6);
 
 		if (n == 1) {
@@ -67,8 +68,10 @@ public class Client {
 			mainMenu(p);
 		} else if (n == 2) {
 			p.itemMenu();
-		} else {
+		} else if (n == 3) {
 			p.chaoMenu();
+		} else {
+			new Shop().shopMenu(p);
 		}
 	}
 

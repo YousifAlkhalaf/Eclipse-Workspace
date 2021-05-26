@@ -2,6 +2,7 @@ package Items;
 
 import Chao.Chao;
 import Garden.Client;
+import Player.Player;
 
 public class Item {
 	
@@ -13,7 +14,6 @@ public class Item {
 		name = "Unknown";
 		type = "Unknown";
 		desc = "Unknown";
-		price = 0;
 	}
 	
 	// Alt constructor
@@ -21,6 +21,7 @@ public class Item {
 		name = itemName;
 		type = itemType;
 		desc = itemDesc;
+		this.price = price;
 	}
 	
 	// Use to be defined by child classes
@@ -54,6 +55,19 @@ public class Item {
 		if (n == 1) {
 			this.use(chao);
 			Client.shiftClear(6);
+			return true;
+		}
+		return false;
+	}
+	
+	// Item select menu for shopping
+	public boolean select(Player p) {
+		System.out.println(this);
+		System.out.println("\nWant to buy this item?\nCost: " + price + "\n");
+		System.out.println("1. Yes\n2. No");
+		int n = Client.getInput(2);
+		Client.shiftClear(6);
+		if (n == 1) {
 			return true;
 		}
 		return false;

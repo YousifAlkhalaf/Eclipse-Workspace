@@ -9,7 +9,7 @@ public class Chao {
 	private int fly, run, swim;
 	private String name;
 	private static int nextLvlBase = 100;
-	
+
 	private Scanner scan = new Scanner(System.in);
 
 	// Default Chao the player starts with
@@ -71,7 +71,8 @@ public class Chao {
 		}
 	}
 
-	// Menu when you select a Chao. You can set the chao as active, get rid of it, or return to the Chao menu
+	// Menu when you select a Chao. You can set the chao as active, get rid of it,
+	// or return to the Chao menu
 	// Number returned determines action within Player class
 	public int select() {
 		this.chaoStats();
@@ -89,8 +90,7 @@ public class Chao {
 				System.out.println("Goodbye " + this.name + "!");
 				Client.shiftClear(6);
 				return 2;
-			}
-			else {
+			} else {
 				Client.shiftClear(6);
 				return 3;
 			}
@@ -129,12 +129,22 @@ public class Chao {
 	public String getName() {
 		return name;
 	}
-	
+
 	// Changes a Chao's name. Appears when using a Name Tag
 	public void changeName() {
 		System.out.println("\nWrite the name you want to give your Chao\n");
 		String s = scan.nextLine();
 		name = s;
 		System.out.println("Name changed!\n");
+	}
+
+	public void changeMood(int amt) {
+		if (happiness + amt >= 0 && happiness + amt <= 255) {
+			happiness += amt;
+		} else if (happiness + amt < 0) {
+			happiness = 0;
+		} else {
+			happiness = 255;
+		}
 	}
 }
