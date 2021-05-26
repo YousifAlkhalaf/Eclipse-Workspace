@@ -18,6 +18,12 @@ public class Player {
 		chaoList.add(new Chao());
 		activeChao = chaoList.get(0);
 	}
+	
+	public Player(int signal) {
+		coins = 10000;
+		chaoList.add(new Chao());
+		activeChao = chaoList.get(0);
+	}
 
 	// Getter for active Chao
 	public Chao chao() {
@@ -68,6 +74,7 @@ public class Player {
 					itemList.remove(n - 1);
 				}
 			}
+			Client.shiftClear(6);
 			Client.mainMenu(this);
 		}
 	}
@@ -99,12 +106,13 @@ public class Player {
 				Client.shiftClear(6);
 			} else {
 				System.out.println();
-				int action = chaoList.get(n - 1).select();
+				int action = chaoList.get(n - 1).select(activeChao);
 				if (action == 1) {
 					activeChao = chaoList.get(n - 1);
-				} else if (action == 2) {
+				} else if (action == 3) {
 					chaoList.remove(n - 1);
 				} else {
+					Client.shiftClear(6);
 					chaoMenu();
 				}
 			}

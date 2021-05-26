@@ -7,12 +7,19 @@
     <fullyQualifiedTypeName name="java.io.File"/>
     <fullyQualifiedTypeName name="java.io.Console"/>
     <fullyQualifiedTypeName name="Garden.Client"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="Items.Item"/>
     <fullyQualifiedTypeName name="Items.SmallBerry"/>
     <fullyQualifiedTypeName name="Items.CommonBerry"/>
-    <fullyQualifiedTypeName name="Chao.Chao"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
-    <fullyQualifiedTypeName name="Player.Player"/>
     <fullyQualifiedTypeName name="Items.NameTag"/>
+    <fullyQualifiedTypeName name="Items.BigBerry"/>
+    <fullyQualifiedTypeName name="Items.AirCrystal"/>
+    <fullyQualifiedTypeName name="Items.WaterCrystal"/>
+    <fullyQualifiedTypeName name="Items.EarthCrystal"/>
+    <fullyQualifiedTypeName name="Items.AirShard"/>
+    <fullyQualifiedTypeName name="Items.WaterShard"/>
+    <fullyQualifiedTypeName name="Items.EarthShard"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="Chao.Chao"/>
+    <fullyQualifiedTypeName name="Player.Player"/>
 </qualifiedTypeNameHistroy>

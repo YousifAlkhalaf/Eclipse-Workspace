@@ -74,29 +74,36 @@ public class Chao {
 	// Menu when you select a Chao. You can set the chao as active, get rid of it,
 	// or return to the Chao menu
 	// Number returned determines action within Player class
-	public int select() {
+	public int select(Chao activeChao) {
 		this.chaoStats();
+		int n;
+
 		System.out.println("\nWhat would you like to do with this Chao?\n");
-		System.out.println("1. Set as Active Chao\n2. Dismiss Chao\n3. Back\n");
-		int n = Client.getInput(3);
+		System.out.println("1. Set as Active Chao\n2. Return to Chao Menu");
+		if (!this.equals(activeChao)) {
+			System.out.println("3. Dismiss Chao\n");
+			n = Client.getInput(3);
+		} else {
+			n = Client.getInput(2);
+		}
 
 		if (n == 1) {
 			Client.shiftClear(6);
 			return 1;
-		} else if (n == 2) {
+		} else if (n == 3) {
 			System.out.println("Are you sure you want to get rid of your Chao? This action cannot be reversed.\n");
 			System.out.println("1. Yes\n2. No\n");
 			if (Client.getInput(2) == 1) {
 				System.out.println("Goodbye " + this.name + "!");
 				Client.shiftClear(6);
-				return 2;
+				return 3;
 			} else {
 				Client.shiftClear(6);
-				return 3;
+				return 2;
 			}
 		} else {
 			Client.shiftClear(6);
-			return 3;
+			return 2;
 		}
 	}
 
@@ -138,6 +145,7 @@ public class Chao {
 		System.out.println("Name changed!\n");
 	}
 
+	// Changes a Chao's happiness by amt
 	public void changeMood(int amt) {
 		if (happiness + amt >= 0 && happiness + amt <= 255) {
 			happiness += amt;
@@ -146,5 +154,47 @@ public class Chao {
 		} else {
 			happiness = 255;
 		}
+	}
+
+	// Calculates a win or a loss for the Chao using the method. Used in races
+	public boolean calcRace(int type, Chao otherChao) {
+		double yourTotal, rivalTotal;
+		int yourStats = 0, rivalStats = 0;
+		
+		switch (type) {
+		case 1:
+			yourStats = fly;
+			rivalStats = otherChao.fly;
+			break;
+		case 2:
+			yourStats = swim;
+			rivalStats = otherChao.swim;
+			break;
+		case 3:
+			yourStats = run;
+			rivalStats = otherChao.run;
+			break;
+		case 4:
+			yourStats = run * fly * swim;
+			rivalStats = otherChao.run * otherChao.fly * otherChao.swim;
+		}
+		
+		yourTotal = yourStats * lvl + happiness;
+		riva
+	}
+
+	// Changes a Chao's fly stat by amt
+	public void changeFly(int amt) {
+		fly += amt;
+	}
+
+	// Changes a Chao's fly stat by amt
+	public void changeSwim(int amt) {
+		swim += amt;
+	}
+
+	// Changes a Chao's fly stat by amt
+	public void changeRun(int amt) {
+		run += amt;
 	}
 }

@@ -1,5 +1,5 @@
 Refactoring.savealleditors=true
-content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="Items.Item"><rhs name\="Items.Item"/></lhs></history>
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="Items.Item"><rhs name\="Items.Item"/><rhs name\="Items.WaterCrystal"/><rhs name\="Items.EarthCrystal"/><rhs name\="Items.AirShard"/><rhs name\="Items.WaterShard"/><rhs name\="Items.EarthShard"/></lhs></history>
 content_assist_number_of_computers=12
 content_assist_proposals_background=255,255,255
 content_assist_proposals_foreground=0,0,0

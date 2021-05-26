@@ -1,11 +1,7 @@
 package Garden;
 
 import java.util.ArrayList;
-
-import Items.CommonBerry;
-import Items.Item;
-import Items.NameTag;
-import Items.SmallBerry;
+import Items.*;
 import Player.Player;
 
 public class Shop {
@@ -15,7 +11,25 @@ public class Shop {
 	public Shop() {
 		catalog.add(new CommonBerry());
 		catalog.add(new SmallBerry());
+		catalog.add(new BigBerry());
+		
 		catalog.add(new NameTag());
+		
+		catalog.add(new FireCrystal());
+		catalog.add(new AirCrystal());
+		catalog.add(new WaterCrystal());
+		catalog.add(new EarthCrystal());
+		
+		catalog.add(new AirShard());
+		catalog.add(new WaterShard());
+		catalog.add(new EarthShard());
+		
+		catalog.add(new Chocolate());
+		catalog.add(new Cookie());
+		catalog.add(new Cake());
+		
+		catalog.add(new BitterMedicine());
+		catalog.add(new Injection());
 	}
 
 	// Sorts items in catalog
