@@ -46,6 +46,66 @@ public class Chao {
 		name = "Rival Chao";
 	}
 
+	// Constructor for other types of Chao
+	public Chao(String type) {
+		if (type.equalsIgnoreCase("Baby")) {
+			lvl = 1;
+			xp = 0;
+			toNextLevel = 75;
+			happiness = 165;
+
+			fly = 10;
+			run = 10;
+			swim = 10;
+
+			name = "Chao";
+		} else if (type.equalsIgnoreCase("Rare")) {
+			lvl = 5;
+			xp = 0;
+			toNextLevel = 200;
+			happiness = 128;
+
+			fly = 55;
+			run = 55;
+			swim = 55;
+
+			name = "Chao";
+		} else if (type.equals("Super")) {
+			lvl = 10;
+			xp = 0;
+			toNextLevel = 375;
+			happiness = 128;
+
+			fly = 75;
+			run = 75;
+			swim = 75;
+
+			name = "Chao";
+		} else if (type.equals("Hyper")) {
+			lvl = 5;
+			xp = 0;
+			toNextLevel = 300;
+			happiness = 128;
+
+			fly = 125;
+			run = 125;
+			swim = 125;
+
+			name = "Chao";
+		} else {
+			lvl = 1;
+			xp = 0;
+			toNextLevel = 100;
+			happiness = 128;
+
+			fly = 10;
+			run = 10;
+			swim = 10;
+
+			name = "Chao";
+		}
+	}
+
 	// Increases the XP of the Chao by xpGain, updating the Chao's level if
 	// necessary. Increase in level increases other stats
 	public void levelUp(int xpGain) {
@@ -160,7 +220,7 @@ public class Chao {
 	public boolean calcRace(int type, Chao otherChao) {
 		double yourTotal, rivalTotal;
 		int yourStats = 0, rivalStats = 0;
-		
+
 		switch (type) {
 		case 1:
 			yourStats = fly;
@@ -178,10 +238,10 @@ public class Chao {
 			yourStats = run * fly * swim;
 			rivalStats = otherChao.run * otherChao.fly * otherChao.swim;
 		}
-		
+
 		yourTotal = yourStats * lvl + happiness;
 		rivalTotal = rivalStats * otherChao.lvl + otherChao.happiness;
-		
+
 		if (yourTotal >= rivalTotal) {
 			return true;
 		}

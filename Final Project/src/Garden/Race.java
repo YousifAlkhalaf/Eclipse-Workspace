@@ -20,13 +20,13 @@ public class Race {
 				competitors.add(new Chao(5, 10));
 				break;
 			case 2:
-				competitors.add(new Chao(15, 25));
+				competitors.add(new Chao(15, 85));
 				break;
 			case 3:
-				competitors.add(new Chao(35, 50));
+				competitors.add(new Chao(100, 150));
 				break;
 			case 4:
-				competitors.add(new Chao(60, 90));
+				competitors.add(new Chao(160, 220));
 			}
 		}
 	}
@@ -46,6 +46,7 @@ public class Race {
 
 		double multiplier = 0;
 
+		// Difficulty multiplier calc
 		switch (difficulty) {
 		case 1:
 			multiplier = 1;
@@ -65,6 +66,7 @@ public class Race {
 			multiplier *= 1.10;
 		}
 
+		// Reward calculation
 		switch (place) {
 		case 1:
 			p.addCoins((int) (80 * multiplier));

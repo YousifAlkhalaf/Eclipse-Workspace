@@ -3,6 +3,7 @@ package Player;
 import java.util.ArrayList;
 import Garden.Client;
 import Chao.Chao;
+import Items.HyperChao;
 import Items.Item;
 
 public class Player {
@@ -19,9 +20,10 @@ public class Player {
 		activeChao = chaoList.get(0);
 	}
 	
+	// "God Mode" constructor
 	public Player(int signal) {
 		coins = 10000;
-		chaoList.add(new Chao());
+		chaoList.add(new Chao("Hyper"));
 		activeChao = chaoList.get(0);
 	}
 
@@ -38,6 +40,10 @@ public class Player {
 	// Getter for coins
 	public int coins() {
 		return coins;
+	}
+	
+	public ArrayList<Chao> chaoList() {
+		return chaoList;
 	}
 	
 	// Changes player coins by amt

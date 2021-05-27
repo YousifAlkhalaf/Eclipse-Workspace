@@ -30,6 +30,12 @@ public class Shop {
 		
 		catalog.add(new BitterMedicine());
 		catalog.add(new Injection());
+		
+		catalog.add(new BabyChao());
+		catalog.add(new RareChao());
+		catalog.add(new SuperChao());
+		catalog.add(new HyperChao());
+		catalog.add(new MysteryChao());
 	}
 
 	// Sorts items in catalog

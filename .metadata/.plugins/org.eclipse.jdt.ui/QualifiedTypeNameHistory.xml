@@ -20,6 +20,8 @@
     <fullyQualifiedTypeName name="Items.WaterShard"/>
     <fullyQualifiedTypeName name="Items.EarthShard"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="Chao.Chao"/>
+    <fullyQualifiedTypeName name="Items.Cookie"/>
     <fullyQualifiedTypeName name="Player.Player"/>
+    <fullyQualifiedTypeName name="Chao.Chao"/>
+    <fullyQualifiedTypeName name="Items.HyperChao"/>
 </qualifiedTypeNameHistroy>

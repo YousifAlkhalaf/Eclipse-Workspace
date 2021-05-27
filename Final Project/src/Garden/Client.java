@@ -12,10 +12,10 @@ public class Client {
 	public static Scanner scan = new Scanner(System.in);
 
 	public static void main(String[] args) throws IOException {
-		Player p = new Player();
+		Player p = new Player(1);
 		p.item().add(new SmallBerry());
 		p.item().add(new CommonBerry());
-		asciiChao();
+		//asciiChao();
 		
 		mainMenu(p);
 	}
@@ -53,6 +53,7 @@ public class Client {
 
 	// Main menu
 	public static void mainMenu(Player p) {
+		asciiChao();
 		System.out.println("Coins: " + p.coins());
 		System.out.println("\n1. Active Chao");
 		System.out.println("2. Items");
@@ -98,6 +99,5 @@ public class Client {
 		System.out.println(" \\___|_| |_|\\__,_|\\___/      \\__, |\\__,_|_|  \\__,_|\\___|_| |_|");
 		System.out.println("                              __/ |");
 		System.out.println("                             |___/ ");
-		// 5 spaces
 	}
 }
