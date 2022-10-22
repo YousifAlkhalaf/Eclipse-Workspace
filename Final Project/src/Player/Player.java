@@ -3,7 +3,6 @@ package Player;
 import java.util.ArrayList;
 import Garden.Client;
 import Chao.Chao;
-import Items.HyperChao;
 import Items.Item;
 
 public class Player {
@@ -76,7 +75,7 @@ public class Player {
 				Client.shiftClear(6);
 			} else {
 				System.out.println();
-				if (itemList.get(n - 1).select(this.chao())) {
+				if (itemList.get(n - 1).select(this.chao(), this)) {
 					itemList.remove(n - 1);
 				}
 			}

@@ -25,7 +25,7 @@ public class Item {
 	}
 	
 	// Use to be defined by child classes
-	public void use(Chao chao) {
+	public void use(Chao chao, Player player) {
 	}
 	
 	public String toString() {
@@ -47,13 +47,13 @@ public class Item {
 	}
 	
 	// Menu for using an item. Returns boolean that determines action in Player class
-	public boolean select(Chao chao) {
+	public boolean select(Chao chao, Player player) {
 		System.out.println(this);
 		System.out.println("\nWant to use this item?\n");
 		System.out.println("1. Yes\n2. No");
 		int n = Client.getInput(2);
 		if (n == 1) {
-			this.use(chao);
+			this.use(chao, player);
 			Client.shiftClear(6);
 			return true;
 		}
